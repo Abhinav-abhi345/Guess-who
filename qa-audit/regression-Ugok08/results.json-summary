@@ -1,0 +1,124 @@
+{
+  "baseline": false,
+  "questionDurationMs": 1500,
+  "results": [
+    {
+      "name": "Running backend protocol and frontend cache policy match",
+      "status": "PASS"
+    },
+    {
+      "name": "Legacy question never renders NaN or selectable stale answers",
+      "status": "PASS"
+    },
+    {
+      "name": "Admin detects stale server and status sits below action buttons",
+      "status": "PASS"
+    },
+    {
+      "name": "Each player independently shuffles the same options without mutating the question",
+      "status": "PASS"
+    },
+    {
+      "name": "QA-08 admin report navigation",
+      "status": "PASS"
+    },
+    {
+      "name": "QA-06 local report endpoint and empty state",
+      "status": "PASS"
+    },
+    {
+      "name": "QA-07 waiting state",
+      "status": "PASS"
+    },
+    {
+      "name": "QA-10 usernames render as text",
+      "status": "PASS"
+    },
+    {
+      "name": "QA-11 loaded images fit narrow viewport",
+      "status": "PASS"
+    },
+    {
+      "name": "QA-01 same-origin save",
+      "status": "PASS"
+    },
+    {
+      "name": "QA-02 rejected save retains form",
+      "status": "PASS"
+    },
+    {
+      "name": "QA-03 upload failure visible and retryable",
+      "status": "PASS"
+    },
+    {
+      "name": "QA-04 question payload and DOM do not disclose answer",
+      "status": "PASS"
+    },
+    {
+      "name": "QA-09 one score per question and completed report",
+      "status": "PASS"
+    },
+    {
+      "name": "QA-05 server rejects invalid fields without writes",
+      "status": "PASS"
+    },
+    {
+      "name": "HTTP malformed JSON, oversized body, URL schemes and types",
+      "status": "PASS"
+    },
+    {
+      "name": "Keyboard login, empty validation and username persistence",
+      "status": "PASS"
+    },
+    {
+      "name": "Form validation, upload response validation and recovery",
+      "status": "PASS"
+    },
+    {
+      "name": "Upload invalid JSON, missing URL and unsafe URL have visible errors",
+      "status": "PASS"
+    },
+    {
+      "name": "Upload file count, type and size validation makes no request",
+      "status": "PASS"
+    },
+    {
+      "name": "Concurrent form submission sends only one save",
+      "status": "PASS"
+    },
+    {
+      "name": "Reports and details HTTP failure, retry, malformed data",
+      "status": "PASS"
+    },
+    {
+      "name": "Report fixtures: malicious names, corrupted storage, empty state",
+      "status": "PASS"
+    },
+    {
+      "name": "Socket security: invalid, stale, duplicate, late, unregistered answers",
+      "status": "PASS"
+    },
+    {
+      "name": "New quiz resets scores; late join and reconnect receive current question",
+      "status": "PASS"
+    },
+    {
+      "name": "Report persistence survives server restart",
+      "status": "PASS"
+    },
+    {
+      "name": "Insufficient data and storage errors are visible without data loss",
+      "status": "PASS"
+    },
+    {
+      "name": "Desktop/tablet/mobile navigation and overflow (320/390/768/1440)",
+      "status": "PASS"
+    },
+    {
+      "name": "No unexpected external/destructive requests or JS errors",
+      "status": "PASS"
+    }
+  ],
+  "originalDataUnchanged": true,
+  "originalDataSha256": "4a2933c1f678988beb9acd8bba6867a403b9e205633f35e2c5ae0aabb9f123ff"
+}

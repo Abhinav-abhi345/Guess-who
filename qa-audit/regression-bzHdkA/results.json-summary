@@ -1,0 +1,56 @@
+{
+  "baseline": false,
+  "questionDurationMs": 1500,
+  "results": [
+    {
+      "name": "QA-08 admin report navigation",
+      "status": "PASS"
+    },
+    {
+      "name": "QA-06 local report endpoint and empty state",
+      "status": "PASS"
+    },
+    {
+      "name": "QA-07 waiting state",
+      "status": "PASS"
+    },
+    {
+      "name": "QA-10 usernames render as text",
+      "status": "PASS"
+    },
+    {
+      "name": "QA-11 loaded images fit narrow viewport",
+      "status": "PASS"
+    },
+    {
+      "name": "QA-01 same-origin save",
+      "status": "PASS"
+    },
+    {
+      "name": "QA-02 rejected save retains form",
+      "status": "PASS"
+    },
+    {
+      "name": "QA-03 upload failure visible and retryable",
+      "status": "PASS"
+    },
+    {
+      "name": "QA-04 question payload and DOM do not disclose answer",
+      "status": "PASS"
+    },
+    {
+      "name": "QA-09 one score per question and completed report",
+      "status": "PASS"
+    },
+    {
+      "name": "QA-05 server rejects invalid fields without writes",
+      "status": "PASS"
+    },
+    {
+      "name": "No unexpected external/destructive requests or JS errors",
+      "status": "PASS"
+    }
+  ],
+  "originalDataUnchanged": true,
+  "originalDataSha256": "4a2933c1f678988beb9acd8bba6867a403b9e205633f35e2c5ae0aabb9f123ff"
+}

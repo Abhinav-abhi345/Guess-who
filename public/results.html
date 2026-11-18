@@ -1,56 +1,17 @@
-<!DOCTYPE html>
-<html>
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <title>Quiz Results</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-    }
-    table {
-      margin: auto;
-      border-collapse: collapse;
-      width: 50%;
-    }
-    th, td {
-      border: 1px solid #333;
-      padding: 10px;
-    }
-    th {
-      background: #f0f0f0;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Results - Guess Who</title>
+  <link rel="stylesheet" href="reports.css">
+  <link rel="stylesheet" href="ui.css">
 </head>
-<body>
-
+<body data-report="player">
+  <nav><a href="/">Login</a><a href="guessWho.html">Join Next Quiz</a></nav>
   <h1>Quiz Results</h1>
-
-  <table>
-    <thead>
-      <tr>
-        <th>User</th>
-        <th>Score</th>
-      </tr>
-    </thead>
-    <tbody id="resultsBody"></tbody>
-  </table>
-
-  <script>
-    const results = JSON.parse(sessionStorage.getItem("quizResults")) || {};
-    const tbody = document.getElementById("resultsBody");
-    console.log("score- >" ,results)
-    for (const user in results) {
-      console.log(user)
-      const row = document.createElement("tr");
-
-      row.innerHTML = `
-        <td>${results[user].username}</td>
-        <td>${results[user].score}</td>
-      `;
-
-      tbody.appendChild(row);
-    }
-  </script>
-
+  <p id="reportStatus" role="status" aria-live="polite">Loading results...</p>
+  <table><thead><tr><th scope="col">User</th><th scope="col">Score</th></tr></thead><tbody id="resultsBody"></tbody></table>
+  <script src="reports.js" defer></script>
 </body>
 </html>

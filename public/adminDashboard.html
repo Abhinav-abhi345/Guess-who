@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>admin</title>
+    <title>Add Person - Guess Who</title>
     <style>
       * {
         box-sizing: border-box;
@@ -13,33 +13,46 @@
       body {
         margin: 0;
         min-height: 100vh;
-        background: linear-gradient(135deg, #1e3c72, #2a5298);
+        background: #f4f6f9;
         display: flex;
         flex-direction: column;
         align-items: center;
-        color: #fff;
+        color: #18304b;
       }
     
       h1 {
         width: 100%;
-        padding: 25px 0;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         margin: 0;
         text-align: center;
-        font-size: 3rem;
-        background: rgba(0, 0, 0, 0.25);
-        backdrop-filter: blur(6px);
-        letter-spacing: 1px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #fff;
+        background: #2c3e50;
       }
     
       .main {
-        margin-top: 40px;
+        margin: 0;
         width: 90%;
         max-width: 700px;
-        background: rgba(255, 255, 255, 0.15);
-        backdrop-filter: blur(10px);
+        background: #fff;
+        border: 1px solid #e1e8ef;
         border-radius: 16px;
         padding: 40px;
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+        box-shadow: 0 12px 40px #18304b0a;
+      }
+
+      .form-region {
+        width: 100%;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px 0 88px;
       }
     
       form {
@@ -64,7 +77,9 @@
       input[type="file"] {
         padding: 10px 14px;
         border-radius: 8px;
-        border: none;
+        border: 1px solid #cad9e9;
+        background: #f8fafd;
+        color: #18304b;
         outline: none;
         font-size: 1rem;
       }
@@ -96,14 +111,14 @@
         border-radius: 10px;
         border: none;
         cursor: pointer;
-        background: linear-gradient(135deg, #00c6ff, #0072ff);
+        background: #1769ce;
         color: #fff;
         transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
       }
     
       #submit:hover {
         transform: translateY(-3px);
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        box-shadow: 0 6px 16px #1769ce26;
         opacity: 0.95;
       }
     
@@ -113,26 +128,31 @@
       }
     
       @media (max-width: 600px) {
-        h1 {
-          font-size: 2.2rem;
-        }
         .main {
           padding: 25px;
         }
       }
+      @media (max-width: 500px) {
+        h1 {
+          font-size: 2rem;
+        }
+      }
     </style>
+    <link rel="stylesheet" href="ui.css">
 </head>
 <body>
-    <h1>Admin Dashboard</h1>
+    <nav class="admin-back-nav" aria-label="Admin navigation"><a href="admin.html"><span aria-hidden="true">&larr;</span>&nbsp; Admin Home</a></nav>
+    <h1>Add Person</h1>
+    <main class="form-region">
     <div class="main">
-        <form action="" class="area" id="upload" method="post" enctype="multipart/form-data">
+        <form class="area" id="upload" novalidate>
         <div>
             <label for="file">Image:-</label>
             <input type="file"  style="height: 50px;" id="file" name="file" accept=".jpeg, .jpg, .png" multiple >
         </div>
         <div>
             <label for="name" >Name:-</label>
-            <input type="text" placeholder="Enter your name here" style="height: 30px;" id="name" name="name">
+            <input type="text" placeholder="Enter your name here" style="height: 40px;" id="name" name="name" maxlength="120">
         </div>
         <div>
       <label for="gender">Gender:-</label>
@@ -143,9 +163,11 @@
       </select>
 </div>
 
-        </form>
         <button  id="submit" type="submit">Submit</button>
+        </form>
+        <p id="saveStatus" role="status" aria-live="polite"></p>
     </div>
+    </main>
     <script src="admin.js" type="module"></script>
 </body>
 </html>

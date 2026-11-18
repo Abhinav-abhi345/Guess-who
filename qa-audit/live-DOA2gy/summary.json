@@ -1,0 +1,21 @@
+{
+  "base": "http://localhost:3000",
+  "username": "QA Live Regression 20261117",
+  "checks": [
+    "Actual localhost backend protocol and report endpoint",
+    "Login to game",
+    "Finite countdown decreases from 15",
+    "Answer options enabled before selection",
+    "Answer accepted and acknowledged",
+    "No in-game Login link",
+    "Admin start acknowledged",
+    "Automatic quiz-to-results redirect",
+    "Admin report includes live player",
+    "One additive report persisted",
+    "Original people data unchanged",
+    "No destructive requests or JS errors"
+  ],
+  "status": "PASS",
+  "originalDataUnchanged": true,
+  "artifacts": "qa-audit\\live-DOA2gy"
+}

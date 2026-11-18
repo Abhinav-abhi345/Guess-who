@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="icon" type="image/icon" href="./git image1.jpg">
+    <link rel="icon" type="image/png" href="./next_9653622.png">
     <style>
         .title {
             display: flex;
@@ -53,6 +53,15 @@
         #login:hover{
             transform: scale(102%);
         }
+        #loginStatus {
+            margin: 10px 0 0;
+            max-width: 208px;
+            font: 13px/1.4 Arial, Helvetica, sans-serif;
+            color: #a12c2c;
+        }
+        #loginStatus:empty {
+            display: none;
+        }
         img:hover {
             transform: scale(105%);
             transition: transform 3s ease;
@@ -64,11 +73,12 @@
         <div class="title">
             <img src="./next_9653622.png" alt="git logo" height="80px">
             <div class="outer-box">
-                <form>
+                <form onsubmit="event.preventDefault(); validate()" novalidate>
                     <label for="username">Username</label>
-                    <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                    <input type="text" id="username" name="username" placeholder="Enter your username" required maxlength="120">
                     <!-- <a href="homePage.html"><input type="button" id="login" value="Login"></a> -->
-                     <input type="button" id="login" value="Login" onclick="validate()">
+                     <input type="submit" id="login" value="Login">
+                     <p id="loginStatus" role="alert"></p>
                 </form>
             </div>
         </div>
@@ -79,12 +89,13 @@
       function validate() {
         const username = document.getElementById("username").value.trim();
 
-        if (!username) {
-          alert("Please enter a username");
+        if (!username || username.length > 120) {
+          document.getElementById('loginStatus').textContent = 'Please enter a username between 1 and 120 characters.';
           return;
         }
 
-        sessionStorage.setItem("username", username);
+        try { sessionStorage.setItem("username", username); }
+        catch { document.getElementById('loginStatus').textContent = 'Browser storage is unavailable. Enable session storage to join.'; return; }
 
         window.location.href = "/guessWho.html";
     }

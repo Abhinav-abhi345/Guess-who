@@ -1,0 +1,13 @@
+node_modules/
+*.log
+*.tmp
+.env
+.env.*
+!.env.example
+/quiz-results.json
+
+# Generated test servers and data stay local; reports and screenshots are retained.
+qa-audit/**/server.js
+qa-audit/**/public/
+qa-audit/**/details.json
+qa-audit/**/results.json

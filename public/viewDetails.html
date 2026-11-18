@@ -54,6 +54,7 @@
       }
 
       .card h3 {
+        overflow-wrap: anywhere;
         margin-bottom: 15px;
         color: #333;
         font-size: 1.2rem;
@@ -89,10 +90,16 @@
         }
       }
     </style>
+    <link rel="stylesheet" href="ui.css">
   </head>
 
   <body>
+    <nav class="admin-back-nav" aria-label="Admin navigation"><a href="admin.html"><span aria-hidden="true">&larr;</span>&nbsp; Admin Home</a></nav>
     <header>Details</header>
+    <div class="details-toolbar">
+    <p id="detailsStatus" role="status" aria-live="polite"></p>
+    <button id="retryDetails" type="button" onclick="fetchDetails()">Refresh Details</button>
+    </div>
 
     <div id="content"></div>
 
@@ -102,10 +109,15 @@
       const content = document.getElementById("content");
 
       function fetchDetails() {
-        fetch("/details")
-          .then((res) => res.json())
-          .then((data) => detailsDisplay(data))
-          .catch((err) => console.error("Error fetching details:", err));
+        const status = document.getElementById('detailsStatus');
+        const refresh = document.getElementById('retryDetails');
+        status.textContent = 'Loading details...';
+        refresh.disabled = true;
+        fetch('/details', { signal: AbortSignal.timeout(15000) })
+          .then(res => { if (!res.ok) throw new Error(); return res.json(); })
+          .then(data => { if (!Array.isArray(data)) throw new Error(); detailsDisplay(data); status.textContent = data.length ? `${data.length} people available.` : 'No people yet. Add Details to create one.'; })
+          .catch(() => { content.replaceChildren(); status.textContent = 'Unable to load details. Select Refresh Details to retry.'; })
+          .finally(() => refresh.disabled = false);
       }
 
       function detailsDisplay(details) {
@@ -145,7 +157,7 @@
             return res.json();
           })
           .then(() => fetchDetails())
-          .catch((err) => console.error("Delete error:", err.message));
+          .catch(() => document.getElementById('detailsStatus').textContent = 'Unable to delete this person. Please refresh details.');
       }
     </script>
   </body>

@@ -1,0 +1,67 @@
+{
+  "baseline": true,
+  "questionDurationMs": 1500,
+  "results": [
+    {
+      "name": "QA-08 admin report navigation",
+      "status": "FAIL",
+      "error": "Expected values to be strictly equal:\n\n0 !== 1\n"
+    },
+    {
+      "name": "QA-06 local report endpoint and empty state",
+      "status": "FAIL",
+      "error": "Expected values to be strictly equal:\n\n404 !== 200\n"
+    },
+    {
+      "name": "QA-07 waiting state",
+      "status": "FAIL",
+      "error": "page.waitForFunction: Timeout 1500ms exceeded."
+    },
+    {
+      "name": "QA-10 usernames render as text",
+      "status": "FAIL",
+      "error": "Expected values to be strictly equal:\n\n1 !== 0\n"
+    },
+    {
+      "name": "QA-11 loaded images fit narrow viewport",
+      "status": "FAIL",
+      "error": "{\"width\":390,\"scroll\":520,\"images\":[{\"x\":-130,\"right\":170},{\"x\":220,\"right\":520}]}"
+    },
+    {
+      "name": "QA-01 same-origin save",
+      "status": "FAIL",
+      "error": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'https://guess-who-amw8.onrender.com/details'\n- 'http://127.0.0.1:3197/details'\n       ^\n"
+    },
+    {
+      "name": "QA-02 rejected save retains form",
+      "status": "FAIL",
+      "error": "Expected values to be strictly equal:\n+ actual - expected\n\n+ ''\n- 'QA New Person'\n"
+    },
+    {
+      "name": "QA-03 upload failure visible and retryable",
+      "status": "FAIL",
+      "error": "The input did not match the regular expression /upload.*failed|unable.*upload|failed to fetch/i. Input:\n\n'Admin Dashboard\\n' +\n  'Image:-\\n' +\n  'Name:-\\n' +\n  'Gender:-\\n' +\n  '-- Select Gender --\\n' +\n  'Male\\n' +\n  'Female\\n' +\n  'Submit'\n"
+    },
+    {
+      "name": "QA-04 question payload and DOM do not disclose answer",
+      "status": "FAIL",
+      "error": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'QA Person 3'\n- undefined\n"
+    },
+    {
+      "name": "QA-09 one score per question and completed report",
+      "status": "FAIL",
+      "error": "Expected values to be strictly equal:\n\n4 !== 1\n"
+    },
+    {
+      "name": "QA-05 server rejects invalid fields without writes",
+      "status": "FAIL",
+      "error": "Expected values to be strictly equal:\n\n201 !== 400\n"
+    },
+    {
+      "name": "No unexpected external/destructive requests or JS errors",
+      "status": "PASS"
+    }
+  ],
+  "originalDataUnchanged": true,
+  "originalDataSha256": "4a2933c1f678988beb9acd8bba6867a403b9e205633f35e2c5ae0aabb9f123ff"
+}

@@ -140,6 +140,7 @@ body {
 
   #imageContainer {
   display: flex;
+  flex-wrap: wrap;
   column-gap: 50px;
   justify-content: center;
   margin-bottom: 50px;
@@ -147,5 +148,16 @@ body {
 
 #imageContainer img {
   width: 300px;
+  max-width: 100%;
+  height: auto;
+  min-width: 0;
   border-radius: 12px;
+}
+
+[hidden] { display: none !important; }
+#imageContainer { row-gap: 20px; }
+#options button { overflow-wrap: anywhere; }
+#gameStatus { overflow-wrap: anywhere; max-width: 620px; padding: 12px 18px; margin: 16px auto; border-radius: 10px; background: #f2f7fd; color: #34577b; line-height: 1.5; }
+@media(max-width: 650px) {
+  #imageContainer { flex-direction: column; align-items: center; }
 }

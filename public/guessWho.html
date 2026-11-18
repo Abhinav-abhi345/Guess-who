@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quiz Game</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<h1>Guess Who</h1>
+<p id="gameStatus" role="status" aria-live="polite">Waiting for the host to start the quiz.</p>
 
 <div class="timer-container">
   <svg class="timer" viewBox="0 0 100 100">
@@ -14,7 +18,7 @@
   <div id="timeText">0</div>
 </div>
 
-<div id="imageContainer">
+<div id="imageContainer" hidden>
   <img id="photo1" alt="Quiz Photo 1">
   <img id="photo2" alt="Quiz Photo 2" style="display:none;">
 </div>

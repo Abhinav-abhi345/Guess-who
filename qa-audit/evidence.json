@@ -1,0 +1,224 @@
+{
+  "tests": [
+    {
+      "name": "desktop navigation",
+      "url": "/",
+      "status": 200,
+      "title": "Login",
+      "text": "Username"
+    },
+    {
+      "name": "desktop navigation",
+      "url": "/guessWho.html",
+      "status": 200,
+      "title": "Quiz Game",
+      "text": "0"
+    },
+    {
+      "name": "desktop navigation",
+      "url": "/admin.html",
+      "status": 200,
+      "title": "Quiz Buttons",
+      "text": "Add Details\nView Details\nStart Quiz"
+    },
+    {
+      "name": "desktop navigation",
+      "url": "/adminDashboard.html",
+      "status": 200,
+      "title": "admin",
+      "text": "Admin Dashboard\nImage:-\nName:-\nGender:-\n-- Select Gender --\nMale\nFemale\nSubmit"
+    },
+    {
+      "name": "desktop navigation",
+      "url": "/viewDetails.html",
+      "status": 200,
+      "title": "Details",
+      "text": "Details\nShreya Ghoshal\nDelete\nNadasha Romanoff\nDelete\nMille Bobby Brown\nDelete\nSmrithi Mandhana\nDelete\nDhanush\nDelete\nShah Rukh Khan\nDelete\nLional Messi\nDelete\nVirat Kohli\nDelete"
+    },
+    {
+      "name": "desktop navigation",
+      "url": "/results.html",
+      "status": 200,
+      "title": "Quiz Results",
+      "text": "Quiz Results\nUser\tScore"
+    },
+    {
+      "name": "dialog",
+      "message": "Please enter a username"
+    },
+    {
+      "name": "login",
+      "url": "http://localhost:3000/guessWho.html",
+      "username": "QA_Audit_20261116"
+    },
+    {
+      "name": "add navigation",
+      "url": "http://localhost:3000/adminDashboard.html"
+    },
+    {
+      "name": "dialog",
+      "message": "Please enter the name!"
+    },
+    {
+      "name": "dialog",
+      "message": "Please select gender!"
+    },
+    {
+      "name": "dialog",
+      "message": "Please select exactly 2 images!"
+    },
+    {
+      "name": "dialog",
+      "message": "Person added successfully!"
+    },
+    {
+      "name": "save rejected",
+      "nameAfter": ""
+    },
+    {
+      "name": "network failure UI",
+      "text": "Admin Dashboard\nImage:-\nName:-\nGender:-\n-- Select Gender --\nMale\nFemale\nSubmit"
+    },
+    {
+      "name": "mobile",
+      "url": "/",
+      "innerWidth": 390,
+      "client": 390,
+      "scroll": 390,
+      "viewport": "width=device-width, initial-scale=1.0"
+    },
+    {
+      "name": "mobile",
+      "url": "/admin.html",
+      "innerWidth": 390,
+      "client": 390,
+      "scroll": 390,
+      "viewport": null
+    },
+    {
+      "name": "mobile",
+      "url": "/adminDashboard.html",
+      "innerWidth": 390,
+      "client": 390,
+      "scroll": 390,
+      "viewport": "width=device-width, initial-scale=1.0"
+    },
+    {
+      "name": "mobile",
+      "url": "/guessWho.html",
+      "innerWidth": 390,
+      "client": 390,
+      "scroll": 390,
+      "viewport": null
+    },
+    {
+      "name": "mobile",
+      "url": "/viewDetails.html",
+      "innerWidth": 390,
+      "client": 390,
+      "scroll": 390,
+      "viewport": "width=device-width, initial-scale=1.0"
+    },
+    {
+      "name": "mobile",
+      "url": "/results.html",
+      "innerWidth": 390,
+      "client": 390,
+      "scroll": 390,
+      "viewport": null
+    },
+    {
+      "name": "question answer disclosure",
+      "answer": "Nadasha Romanoff",
+      "correctInDOM": "Nadasha Romanoff"
+    },
+    {
+      "name": "quiz mobile",
+      "innerWidth": 390,
+      "scroll": 390,
+      "images": [
+        {
+          "width": 142,
+          "x": 28
+        },
+        {
+          "width": 142,
+          "x": 220
+        }
+      ]
+    },
+    {
+      "name": "dialog",
+      "message": "Quiz Finished!"
+    },
+    {
+      "name": "completed quiz",
+      "text": "Quiz Results\nUser\tScore\nGuest\t4"
+    },
+    {
+      "name": "late player / restart",
+      "text": "15\nNadasha Romanoff\nSmrithi Mandhana\nShreya Ghoshal\nMille Bobby Brown"
+    },
+    {
+      "name": "report HTML injection",
+      "htmlRendered": 1
+    },
+    {
+      "name": "API missing fields",
+      "status": 400,
+      "body": "{\"message\":\"Missing data\"}"
+    },
+    {
+      "name": "API missing fields",
+      "status": 400,
+      "body": "{\"message\":\"Missing data\"}"
+    },
+    {
+      "name": "local admin results endpoint",
+      "status": 404
+    }
+  ],
+  "errors": [],
+  "requests": [
+    {
+      "url": "https://guess-who-amw8.onrender.com/details",
+      "method": "POST",
+      "body": "{\"answer\":\"QA_Audit_20261116\",\"image1\":\"https://example.invalid/qa.png\",\"image2\":\"https://example.invalid/qa.png\",\"gender\":\"male\"}"
+    },
+    {
+      "url": "https://guess-who-amw8.onrender.com/admin/results",
+      "method": "GET"
+    }
+  ],
+  "isolatedValidation": {
+    "port": 3001,
+    "status": 201,
+    "request": {
+      "answer": "   ",
+      "image1": "not-a-url",
+      "image2": 123,
+      "gender": "invalid"
+    }
+  },
+  "method": {
+    "quizPort": 3002,
+    "questionScheduleMs": 1500,
+    "originalDataSha256": "4A2933C1F678988BEB9ACD8BBA6867A403B9E205633F35E2C5AE0AABB9F123FF"
+  },
+  "responsiveLoadedImageFixture": {
+    "viewportWidth": 390,
+    "scrollWidth": 520,
+    "images": [
+      {
+        "x": -130,
+        "width": 300
+      },
+      {
+        "x": 220,
+        "width": 300
+      }
+    ],
+    "source": "/next_9653622.png",
+    "method": "Browser DOM fixture on localhost:3000; no server writes"
+  }
+}

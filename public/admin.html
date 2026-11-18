@@ -1,76 +1,52 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Quiz Buttons</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            font-family: Arial, sans-serif;
-            background-color: #f4f6f9;
-        }
-
-        .button-container {
-            display: flex;
-            gap: 20px;
-        }
-
-        a {
-            text-decoration: none;
-        }
-
-        button {
-            padding: 15px 30px;
-            font-size: 16px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .add-btn {
-            background-color: #4CAF50;
-            color: white;
-        }
-
-        .quiz-btn {
-            background-color: #2196F3;
-            color: white;
-        }
-
-        button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Administration - Guess Who</title>
+  <link rel="stylesheet" href="ui.css">
+  <style>body { min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #f4f6f9; padding: 24px 0; }</style>
 </head>
 <body>
-
+  <main class="admin-panel">
+    <h1>Quiz Administration</h1>
+    <p class="admin-intro">Manage people, host a quiz, and review completed games.</p>
     <div class="button-container">
-        <a href="adminDashboard.html">
-            <button class="add-btn">Add Details</button>
-        </a>
-        <a href="viewDetails.html">
-            <button class="add-btn">View Details</button>
-        </a>
-
-        <button class="quiz-btn" onclick="start()">Start Quiz</button>
-        <!-- <a href="adminResults.html">
-            <button class="add-btn">View Result</button>
-        </a> -->
+      <a class="nav-button" href="adminDashboard.html">Add Details</a>
+      <a class="nav-button" href="viewDetails.html">View Details</a>
+      <button class="quiz-btn" type="button" onclick="start()">Start Quiz</button>
+      <a class="nav-button" href="adminResults.html">View Results</a>
     </div>
-
-    <script src="/socket.io/socket.io.js"></script>
-    <script>
-        const socket = io();
-        function start() {
-            socket.emit("startQuiz");
-        }
+    <p id="quizStatus" role="status" aria-live="polite">Connecting to the quiz server...</p>
+  </main>
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io();
+    const status = document.getElementById('quizStatus');
+    socket.on('connect', () => status.textContent = 'Ready to start a quiz.');
+    socket.on('disconnect', () => status.textContent = 'Disconnected. Waiting to reconnect...');
+    socket.on('connect_error', () => status.textContent = 'Unable to connect. Retrying...');
+    socket.on('quizError', data => status.textContent = data.message);
+    socket.on('quizEnd', () => status.textContent = 'Quiz finished. Open View Results for the report.');
+    async function start() {
+      const button = document.querySelector('.quiz-btn');
+      if (button.disabled) return;
+      if (!socket.connected) { status.textContent = 'Not connected. Please try again when connected.'; return; }
+      button.disabled = true;
+      status.textContent = 'Starting the quiz...';
+      try {
+        const response = await fetch('/health', { cache: 'no-store', signal: AbortSignal.timeout(5000) });
+        const info = response.ok ? await response.json() : null;
+        if (info?.protocolVersion !== 2) throw new Error('The server needs an update. Please restart the app server and reload this page.');
+        socket.timeout(5000).emit('startQuiz', (error, result) => {
+          button.disabled = false;
+          status.textContent = error ? 'Starting timed out. Please check the server connection.' : result?.ok ? 'Quiz started. Players can now answer on their game screens.' : result?.message || 'Unable to start the quiz. Please retry.';
+        });
+      } catch (error) {
+        button.disabled = false;
+        status.textContent = error.message || 'Unable to reach the quiz server. Please retry.';
+      }
+    }
   </script>
 </body>
 </html>
-
-  
